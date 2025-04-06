@@ -1,0 +1,15 @@
+{
+     "version": 2,
+     "builds": [
+       {
+         "src": "C:\\Users\\Jewel Idowu\\SwiftTasks\\swift_task\\swift_task\\wsgi.py",
+         "use": "@vercel/python"
+       }
+     ],
+     "routes": [
+       {
+         "src": "/(.*)",
+         "dest": "C:\\Users\\Jewel Idowu\\SwiftTasks\\swift_task\\swift_task\\wsgi.py"
+       }
+     ]
+   }
