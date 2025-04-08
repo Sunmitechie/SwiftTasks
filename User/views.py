@@ -7,7 +7,6 @@ from django.contrib.auth import get_user_model
 
 User = get_user_model()
 
-# User Registration View
 class RegisterUser(APIView):
     def post(self, request):
         username = request.data.get('username')
@@ -21,7 +20,6 @@ class RegisterUser(APIView):
         user = User.objects.create_user(username=username, password=password, email=email, role=role)
         return Response({"message": "User registered successfully"}, status=status.HTTP_201_CREATED)
 
-# Login View (Token Generation)
 class LoginUser(APIView):
     def post(self, request):
         username = request.data.get('username')
@@ -32,7 +30,6 @@ class LoginUser(APIView):
             if not user.check_password(password):
                 return Response({"error": "Invalid credentials"}, status=status.HTTP_401_UNAUTHORIZED)
 
-            # Generate JWT tokens
             refresh = RefreshToken.for_user(user)
             return Response({
                 "refresh": str(refresh),
@@ -42,7 +39,6 @@ class LoginUser(APIView):
         except User.DoesNotExist:
             return Response({"error": "Invalid credentials"}, status=status.HTTP_401_UNAUTHORIZED)
 
-# Role-Based Access
 class AdminOnlyView(APIView):
     permission_classes = [IsAuthenticated]
 

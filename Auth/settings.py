@@ -60,10 +60,10 @@ MIDDLEWARE = [
 
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': (
-        'rest_framework_simplejwt.authentication.JWTAuthentication',  # Use JWT for authentication
+        'rest_framework_simplejwt.authentication.JWTAuthentication',  
     ),
     'DEFAULT_PERMISSION_CLASSES': (
-        'rest_framework.permissions.IsAuthenticated',  # Default permission: authenticated users only
+        'rest_framework.permissions.IsAuthenticated', 
     ),
 }
 
@@ -108,7 +108,7 @@ SIMPLE_JWT = {
     'AUTH_HEADER_TYPES': ('Bearer',),               
 }
 
-ROOT_URLCONF = 'swift_task.urls'
+ROOT_URLCONF = 'jechies_auth.urls'
 
 TEMPLATES = [
     {
